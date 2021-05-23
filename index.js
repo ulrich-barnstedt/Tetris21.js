@@ -1,4 +1,4 @@
-const Engine = require("./modules/engine/engine");
+const Engine = require("./modules/engine");
 let engine = new Engine();
 
 engine.init();

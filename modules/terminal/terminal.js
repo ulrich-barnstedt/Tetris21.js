@@ -1,7 +1,7 @@
 const Draw = require("./draw");
 
 module.exports = class {
-    static currentSize () {
+    static terminalSize () {
         return {
             x : process.stdout.columns,
             y : process.stdout.rows
@@ -9,7 +9,7 @@ module.exports = class {
     }
 
     constructor () {
-        this.size = this.constructor.currentSize();
+        this.size = this.constructor.terminalSize();
         this.buffer = Array(this.size.y).fill(null).map(() => Array(this.size.x).fill(" "));
 
         this.interalBuffer = Array(this.size.y).fill(null).map(() => Array(this.size.x).fill(0));
