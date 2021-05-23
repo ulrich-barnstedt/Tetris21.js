@@ -4,6 +4,7 @@ module.exports = class {
     constructor () {
         this.listeners = [];
         this.cleanupHandlers = [];
+        this.blocked = false;
 
         process.stdin.on("keypress", (str, key) => {
             if (key.sequence === '\u0003') {
@@ -11,6 +12,7 @@ module.exports = class {
                 process.exit();
             }
 
+            if (this.blocked) return;
             this.listeners.forEach(l => l(key));
         });
     }
@@ -26,5 +28,13 @@ module.exports = class {
     init () {
         readline.emitKeypressEvents(process.stdin);
         if (process.stdin.isTTY) process.stdin.setRawMode(true);
+    }
+
+    block () {
+        this.blocked = true;
+    }
+
+    unblock () {
+        this.blocked = false;
     }
 }

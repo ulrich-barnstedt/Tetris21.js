@@ -1,3 +1,5 @@
+const Draw = require("./draw");
+
 module.exports = class {
     static currentSize () {
         return {
@@ -11,6 +13,7 @@ module.exports = class {
         this.buffer = Array(this.size.y).fill(null).map(() => Array(this.size.x).fill(" "));
 
         this.interalBuffer = Array(this.size.y).fill(null).map(() => Array(this.size.x).fill(0));
+        this.draw = new Draw(this);
     }
 
     moveCursor (y, x) {
@@ -59,27 +62,5 @@ module.exports = class {
                 process.stdout.write(strBuf);
             }
         }
-    }
-
-    writeIntoX (y, x, text) {
-        this.arrayToX(y, x, text.split(""));
-    }
-
-    writeIntoY (y, x, text) {
-        this.arrayToY(y, x, text.split(""));
-    }
-
-    arrayToX (y, x, array) {
-        array.forEach((elem, idx) => this.buffer[y][x + idx] = elem);
-    }
-
-    arrayToY (y, x, array) {
-        array.forEach((elem, idx) => this.buffer[y + idx][x] = elem);
-    }
-
-    d2toBuffer (y, x, array) {
-        array.forEach((row, yOffset) => {
-            this.arrayToX(y + yOffset, x, row);
-        })
     }
 }

@@ -1,4 +1,4 @@
-const util = require("./utility");
+const util = require("../utility");
 
 module.exports = class {
     constructor (layout, colorFn, x) {
@@ -13,7 +13,10 @@ module.exports = class {
     }
 
     rotate (clockwise) {
+        this.layout = util.rotate(this.layout, 1);
 
+        this.width = this.layout[0].length;
+        this.height = this.layout.length;
     }
 
     moveDown () {
