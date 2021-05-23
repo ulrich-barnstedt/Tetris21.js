@@ -4,7 +4,7 @@ module.exports = class {
     }
 
     static box = "█";
-    static blank = -1;
+    static blank = " ";
     static borderChars = {
         topL : "╔",
         bottomL : "╚",

@@ -1,15 +1,15 @@
 const util = require("../utility");
 
 module.exports = class {
-    constructor (layout, colorFn, x) {
+    constructor (layout, colorFn, maxX) {
         this.layout = layout;
         this.colorFn = colorFn;
 
-        this.y = 0;
-        this.x = x;
-
         this.width = this.layout[0].length;
         this.height = this.layout.length;
+
+        this.y = 0 - this.height;
+        this.x = util.random(0, maxX - this.width * 2);
     }
 
     rotate (clockwise) {
@@ -40,6 +40,7 @@ module.exports = class {
             }
         }
 
+        if (this.y < 0) return array.slice(this.y + 1);
         return array;
     }
 }

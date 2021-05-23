@@ -13,7 +13,7 @@ module.exports = class {
         this.nextTileField = new NextTile(this.terminal);
         this.extraInfo = new ExtraInfo(this.terminal, this.input);
         this.scoreTracker = new ScoreTracker(this.terminal);
-        this.tetrisField = new TetrisField(this.terminal, this.extraInfo);
+        this.tetrisField = new TetrisField(this.terminal, this.extraInfo, this.nextTileField, this.scoreTracker);
     }
 
     init () {
@@ -26,18 +26,19 @@ module.exports = class {
         this.extraInfo.init(12, 25, 11, 5);
 
         this.terminal.render();
-    }
-
-    setNextTile (tile) {
-        this.nextTileField.set(tile);
+        this.setupPassiveTicks();
     }
 
     setupPassiveTicks () {
+        //TODO: gradually increase speed with varying ms in setTimeout()
 
+        setInterval(() => {
+            this.tetrisField.passiveTick();
+        }, 200);
     }
 
     setupKeyboardInput () {
-
+        //todo: setup
     }
 }
 
