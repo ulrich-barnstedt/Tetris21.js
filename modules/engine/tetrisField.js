@@ -30,6 +30,8 @@ module.exports = class extends BoxBasedPanel {
         if (this.nextTile === undefined) this.nextTile = this.tileGenerator.get();
 
         this.activeTile = this.nextTile;
+        this.activeTile.setupIntoGame();
+
         this.nextTile = this.tileGenerator.get();
         this.nextTileField.draw(this.nextTile);
 

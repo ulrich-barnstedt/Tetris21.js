@@ -8,7 +8,7 @@ module.exports = class {
         this.width = this.layout[0].length;
         this.height = this.layout.length;
 
-        this.y = 0 - this.height;
+        this.y = 0;
         this.x = util.random(0, maxX - this.width * 2);
     }
 
@@ -42,5 +42,9 @@ module.exports = class {
 
         if (this.y < 0) return array.slice(this.y + 1);
         return array;
+    }
+
+    setupIntoGame () {
+        this.y = 0 - this.height;
     }
 }
