@@ -1,4 +1,4 @@
-const Terminal = require("./terminal/terminal");
+const Terminal = require("buffer-render");
 const Input = require("./input");
 const TetrisField = require("./engine/tetrisField");
 const NextTile = require("./engine/nextTile");
