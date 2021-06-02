@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "buffer-render": "^1.0.2",
-    "chalk": "^4.1.1"
+    "chalk": "^4.1.1",
+    "readline-char": "^1.0.2"
   }
 }

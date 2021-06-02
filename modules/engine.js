@@ -1,5 +1,5 @@
 const Terminal = require("buffer-render");
-const Input = require("./input");
+const Input = require("readline-char");
 const TetrisField = require("./engine/tetrisField");
 const NextTile = require("./engine/nextTile");
 const ExtraInfo = require("./engine/extraInfo");
